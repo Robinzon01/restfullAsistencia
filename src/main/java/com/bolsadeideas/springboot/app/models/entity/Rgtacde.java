@@ -16,6 +16,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -25,10 +28,12 @@ public class Rgtacde implements Serializable {
 	
 	@Id
 	@Column(name = "cod_ra")
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
 	private Long id;
 	
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="dd-MM-yyyy")
+	@JsonFormat(pattern="dd-MM-yyyy HH:mm:ss")
 	private Date fecha;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

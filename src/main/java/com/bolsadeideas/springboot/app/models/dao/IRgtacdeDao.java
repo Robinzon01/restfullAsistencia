@@ -16,7 +16,7 @@ import com.bolsadeideas.springboot.app.models.entity.Rgtacde;
 public interface IRgtacdeDao extends PagingAndSortingRepository<Rgtacde, Long> {
 	
 	//VAMOS A TRAER TODOS LOS REGISTRO DE ACTIVIDADES PERO COMPAÑIA
-	@Query("SELECT a FROM Rgtacde a WHERE a.cia = :cia")
+	@Query("SELECT r FROM Rgtacde r WHERE r.cia = :cia ORDER BY r.fecha DESC")
 	Page<Rgtacde> findAllPage(Pageable pageable,@Param("cia") String cia);
 	
 	@Query("SELECT a FROM Rgtacde a WHERE a.cia = :cia AND a.usuario = :user AND a.fecha BETWEEN :f1 AND :f2")

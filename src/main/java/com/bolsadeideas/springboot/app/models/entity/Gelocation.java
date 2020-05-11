@@ -5,21 +5,21 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
 @Entity
 public class Gelocation implements Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "cod_ge")
+	@GeneratedValue(strategy= GenerationType.SEQUENCE)
 	private Long id;
 	
 	@Column(name = "no_cia")
@@ -29,7 +29,7 @@ public class Gelocation implements Serializable {
 	@Size(min=1, max=50, message="La longuitud del usuario de la tabla Gelocation es 50.")
 	private String usuario;
 	
-	@Column(name = "cod_empleado ")
+	@Column(name = "cod_empleado")
 	@Size(min=1, max=20, message="La longuitud del cod_empleado de la tabla Gelocation es 20.")
 	private String codEmp;
 	
@@ -55,19 +55,22 @@ public class Gelocation implements Serializable {
 	private String estado;
 	
 	@Temporal(TemporalType.DATE)
+	@Column(name = "F_CREACION")
 	private Date fInactivo;
-	
+	/*
 	@Size(min=1, max=50, message="La longuitud del uCreacion de la tabla Gelocation es 50.")
+	@Column(name = "U_CREACION")
 	private String uCreacion;
 	
 	@Temporal(TemporalType.DATE)
+	@Column(name = "F_CREACION")
 	private Date fCreacion;
 	
 	@PrePersist
 	public void prePersist() {
 		fCreacion = new Date();
 	}
-
+	*/
 	public Long getId() {
 		return id;
 	}
@@ -163,7 +166,7 @@ public class Gelocation implements Serializable {
 	public void setfInactivo(Date fInactivo) {
 		this.fInactivo = fInactivo;
 	}
-
+	/*
 	public String getuCreacion() {
 		return uCreacion;
 	}
@@ -179,5 +182,5 @@ public class Gelocation implements Serializable {
 	public void setfCreacion(Date fCreacion) {
 		this.fCreacion = fCreacion;
 	}
-	
+	*/
 }

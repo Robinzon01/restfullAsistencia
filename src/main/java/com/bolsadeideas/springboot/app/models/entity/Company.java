@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Arfamc {
+public class Company {
 	
 	@Id
 	@Column(name="NO_CIA")
@@ -30,10 +30,10 @@ public class Arfamc {
 	@Column(name = "CUENTA_DOL")
 	private String cuentaDol;
 
-	public Arfamc() {
+	public Company() {
 	}
 
-	public Arfamc(String cia,
+	public Company(String cia,
 			@Size(min = 1, max = 30, message = "La longuitud del nombre de la compañia es 30.") String nombre,
 			String nombreAno, String ruc, String razonSocial, String cuentaSol, String cuentaDol) {
 		this.cia = cia;

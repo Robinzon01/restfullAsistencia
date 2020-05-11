@@ -51,8 +51,8 @@ public class Cliente implements Serializable {
 	@NotNull
 	@Column(name = "create_at")
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat(pattern="dd.MM.yyyy")
+	@JsonFormat(pattern="dd.MM.yyyy HH:mm:ss")
 	private Date createAt;
 	
 	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)

@@ -45,12 +45,12 @@ INSERT INTO facturas (id,descripcion, observacion, cliente_id, create_at) VALUES
 INSERT INTO facturas_items (id,cantidad, factura_id, producto_id) VALUES(5,3, 2, 6);
 
 /* Creamos algunos usuarios con sus roles */
-INSERT INTO users (id,username, password, enabled) VALUES (1,'andres','$2a$10$O9wxmH/AeyZZzIS09Wp8YOEMvFnbRVJ8B4dmAMVSGloR62lj.yqXG',1);
-INSERT INTO users (id,username, password, enabled) VALUES (2,'admin','$2a$10$DOMDxjYyfZ/e7RcBfUpzqeaCs8pLgcizuiQWXPkU35nOhZlFcE9MS',1);
+INSERT INTO users (username, password, enabled) VALUES ('andres','$2a$10$O9wxmH/AeyZZzIS09Wp8YOEMvFnbRVJ8B4dmAMVSGloR62lj.yqXG',1);
+INSERT INTO users (username, password, enabled) VALUES ('admin','$2a$10$DOMDxjYyfZ/e7RcBfUpzqeaCs8pLgcizuiQWXPkU35nOhZlFcE9MS',1);
 
-INSERT INTO authorities (id,user_id, authority) VALUES (1,1,'ROLE_USER');
-INSERT INTO authorities (id,user_id, authority) VALUES (2,2,'ROLE_ADMIN');
-INSERT INTO authorities (id,user_id, authority) VALUES (3,2,'ROLE_USER');
+INSERT INTO authorities (user_id, authority) VALUES (1,'ROLE_USER');
+INSERT INTO authorities (user_id, authority) VALUES (2,'ROLE_ADMIN');
+INSERT INTO authorities (user_id, authority) VALUES (2,'ROLE_USER');
 
 Insert into ARFAMC (NO_CIA, CUENTA_DOL, CUENTA_SOL, NOMBRE, RAZON_SOCIAL, NO_CLIENTE_ONLINE) Values ('01', '182452-4524', '1552455-899', 'ESCUELA', 'ESCUELA ACTIVA S.A.C', 'ESCUELA ACTIVA');
 Insert into ARFAMC (NO_CIA, CUENTA_DOL, CUENTA_SOL, NOMBRE, NOMBRE_ANO, RAZON_SOCIAL, NO_CLIENTE_ONLINE) Values ('02', '15245-15', '18578-25', 'DELTA', 'DELTA', 'DELTA', 'DELTA');

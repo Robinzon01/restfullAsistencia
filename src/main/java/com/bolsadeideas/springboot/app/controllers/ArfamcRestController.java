@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bolsadeideas.springboot.app.models.entity.Arfamc;
-import com.bolsadeideas.springboot.app.models.service.IArfamcService;
+import com.bolsadeideas.springboot.app.models.entity.Company;
+import com.bolsadeideas.springboot.app.models.service.ICompanyService;
 
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST}) //NOS PERMITE DAR COMUNICACION ENTRE SERVIDORES
 @RestController
@@ -19,11 +19,11 @@ import com.bolsadeideas.springboot.app.models.service.IArfamcService;
 public class ArfamcRestController {
 	
 	@Autowired
-	private IArfamcService arfaService;
+	private ICompanyService arfaService;
 	
 	@GetMapping(value = "/list")
 	@Secured("ROLE_USER")
-	public List<Arfamc> listar() {
+	public List<Company> listar() {
 		return arfaService.getAllArfamc(); 
 	}
 

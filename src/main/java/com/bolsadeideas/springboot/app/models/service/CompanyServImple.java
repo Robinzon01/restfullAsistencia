@@ -8,24 +8,24 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.bolsadeideas.springboot.app.models.dao.IArfamcDao;
-import com.bolsadeideas.springboot.app.models.entity.Arfamc;
+import com.bolsadeideas.springboot.app.models.dao.ICompanyDao;
+import com.bolsadeideas.springboot.app.models.entity.Company;
 
 @Service
-public class ArfamcServImple implements IArfamcService {
+public class CompanyServImple implements ICompanyService {
 	
 	@Autowired
-	private IArfamcDao arfamcDao;
+	private ICompanyDao arfamcDao;
 
 	@Override
-	public List<Arfamc> getAllArfamc() {
-		List<Arfamc> cias = new ArrayList<>();
+	public List<Company> getAllArfamc() {
+		List<Company> cias = new ArrayList<>();
 		arfamcDao.findAll().iterator().forEachRemaining(cias::add);
 		return cias;
 	}
 
 	@Override
-	public Arfamc createArfamc(Arfamc objArfamc) {
+	public Company createArfamc(Company objArfamc) {
 		// TODO Auto-generated method stub
 		return arfamcDao.save(objArfamc);
 	}
@@ -37,13 +37,13 @@ public class ArfamcServImple implements IArfamcService {
 	}
 
 	@Override
-	public Arfamc findArfamc(String cia) {
+	public Company findArfamc(String cia) {
 		// TODO Auto-generated method stub
 		return arfamcDao.findByCia(cia);
 	}
 
 	@Override
-	public Page<Arfamc> findAll(Pageable pageable) {
+	public Page<Company> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}

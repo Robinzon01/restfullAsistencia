@@ -5,6 +5,9 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,5 +40,11 @@ public class RgtacdeRestController {
 	public List<Rgtacde> registroHoy(@PathVariable("cia") String cia, @PathVariable("user") String user) {
 		return rgtaService.registroHoyAndUser(cia, user); 
 	}
+    //METODO QUE ENVIA UNA PAGINACION DE RGTACDE
+  	@GetMapping("/list/page/{cia}/{page}")
+  	public Page<Rgtacde> paginacion(@PathVariable("cia") String cia, @PathVariable("page") Integer page ){
+  		Pageable pageable = PageRequest.of(page, 4);
+  		return rgtaService.findAllPage(pageable, cia);
+  	}
 
 }

@@ -5,16 +5,16 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.bolsadeideas.springboot.app.models.entity.Arfamc;
+import com.bolsadeideas.springboot.app.models.entity.Company;
 
-public interface IArfamcService {
+public interface ICompanyService {
 	
-	List<Arfamc> getAllArfamc();
-	Arfamc createArfamc(Arfamc objArfamc);
+	List<Company> getAllArfamc();
+	Company createArfamc(Company objArfamc);
 	void deleteArfamc(String cia);
 	//BUSCAMOS UNA COMPAÑIA
-	Arfamc findArfamc(String cia);
+	Company findArfamc(String cia);
 	//PAGINACION
-	Page<Arfamc> findAll(Pageable pageable);
+	Page<Company> findAll(Pageable pageable);
 
 }
